@@ -4,7 +4,6 @@ import UnitName from '../../constants/unit-name'
 
 class Footer extends React.Component {
     render(){
-        console.log("FOOTER: ", this.props.hasPreviousUnit)
         return (
             <footer className="footer">
                 <div className='slide-info'>
@@ -14,7 +13,9 @@ class Footer extends React.Component {
                         slide={this.props.slide} 
                         onChangeUnit={this.props.onChangeUnit} 
                         onChangeSlide={this.props.onChangeSlide} 
-                        slideCount={this.props.slideCount}/>
+                        slideCount={this.props.slideCount}
+                        slideProgress={this.props.slideProgress}
+                        />
                 </div>
                 <div className="copyright" style={{'fontSize':'10pt'}}>
                     © UFRGS. {UnitName.COURSE_NAME_COMPLETE}

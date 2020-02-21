@@ -167,6 +167,10 @@ class AvaMecApiServices {
     closeSaveActivity = callback => {
         window.removeEventListener(AvamecEvent.REGISTER_ACTIVITY, callback, false)
     }
+
+    saveLastPage = (unit, slide) => {
+        this.api.registrarUltimaPaginaAcessada(unit, "index.html?unit=".concat(unit).concat("&slide=").concat(slide))
+    }
 }
 
 export default (new AvaMecApiServices())

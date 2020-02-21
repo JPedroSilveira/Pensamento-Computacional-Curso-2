@@ -1,9 +1,8 @@
 import UrlKey from '../constants/url-key'
+import AVAMECService from './avamec'
 
 class UrlService {
     get = key => {
-        console.log(window.location.pathname)
-        console.log(window.location.search)
         const regex = new RegExp('[\\?&]' + key + '=([^&#]*)')
         const results = regex.exec(window.location.search)
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
@@ -24,7 +23,6 @@ class UrlService {
             const newSearch = window.location.search.replace(slideSearch.concat(this.getSlide()), slideSearch.concat(newPage))
             window.history.pushState(null, null, window.location.pathname.concat(newSearch))
         } else {
-            console.log(window.location.pathname)
             const newSearch = window.location.search.concat('&').concat(slideSearch).concat(newPage)
             window.history.pushState(null, null, window.location.pathname.concat(newSearch))
         }

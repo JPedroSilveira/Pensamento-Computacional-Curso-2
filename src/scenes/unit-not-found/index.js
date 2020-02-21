@@ -11,9 +11,9 @@ class UnitNotFound extends BaseScene {
       slideCount: 0,
       slide: 0,
       hasNextUnit: false,
-      hasPreviousUnit: false
+      hasPreviousUnit: false,
+      slideProgress: []
     }
-     
   }
 
   renderSlide = () => {

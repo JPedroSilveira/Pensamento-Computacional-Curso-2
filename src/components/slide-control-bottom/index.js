@@ -9,6 +9,9 @@ import SlideControlNumber from '../slide-control-number'
  - slideCount: string, how many slides the unit has
  - onChangeSlide: function, function to update the slide
  - onChangeUnit: function, function to update the unit
+- slideProgress: list, lista contendo os slides e o status de visualização do tipo:
+    - viewed: boolean, indica se o slide foi visto
+    - slide: number, número do slide
 */
 
 class SlideControlBottom extends React.Component {
@@ -26,6 +29,7 @@ class SlideControlBottom extends React.Component {
                     <SlideControlNumber 
                         onChange={this.props.onChangeSlide} 
                         slideCount={this.props.slideCount} 
+                        slideProgress={this.props.slideProgress}
                         slide={this.props.slide}/>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         "identificador": "introducao",
         "nome": "Introdução",
         "descricao": "",
-        "permitePorcentagem": "false",
+        "permitePorcentagem": "true",
         "identificadorPai": "",
         "topicos": [],
         "atividades": []
@@ -448,7 +448,7 @@
         "identificador": "consideracoes",
         "nome": "Considerações Finais",
         "descricao": "",
-        "permitePorcentagem": "false",
+        "permitePorcentagem": "true",
         "identificadorPai": "",
         "topicos": [],
         "atividades": []

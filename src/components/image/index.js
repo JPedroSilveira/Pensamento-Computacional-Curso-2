@@ -11,13 +11,10 @@ import React, {Fragment} from 'react'
 class Image extends React.Component {
     constructor(props){
         super(props)
-        console.log(this.props.width)
         if(this.props.center){
             this.state = {
                 width: this.props.width ? this.props.width : '100%'
             }
-            console.log("State")
-            console.log(this.state.width)
         }
         
     }

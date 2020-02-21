@@ -1,4 +1,4 @@
-let state = {
+const state = {
     unit: document.title,
     slide: 1
 }
@@ -6,25 +6,20 @@ let state = {
 const api = new window.BridgeRestApi()
 
 function startApp() {
-    
     const slide = (state.slide).toString().split('"').join('')
     window.location = "../index.html?unit=".concat(state.unit).concat("&slide=").concat(slide)
     try{
-        api.registrarUltimaPaginaAcessada(state.unit, '')
+        api.registrarUltimaPaginaAcessada(state.unit, "index.html?unit=".concat(state.unit).concat("&slide=").concat(slide))
     } catch{}
-
 }
 
 function getSavedUnitCallback(info) {
     window.removeEventListener('evObtemDadosGenericos', getSavedUnitCallback, false)
 
-    if(info.detail.status === 200 && state.unit === info.detail.data[0].valor){
-        getSavedSlide()
-    } else {
+    if(info.detail.status != 200 || state.unit != info.detail.data[0].valor) {
         api.registrarDadosGenericos('unit', state.unit)
-        api.registrarDadosGenericos('slide', 1)
-        startApp()
     }
+    getSavedSlide()
 }
 
 function getSavedUnit() {
@@ -42,7 +37,7 @@ function getSavedSlideCallback(info) {
         state.slide = info.detail.data[0].valor
         startApp()
     } else {
-        api.registrarDadosGenericos('slide', state.slide)
+        api.registrarDadosGenericos(getSlideId(), state.slide)
         startApp()
     }
 }
@@ -50,10 +45,14 @@ function getSavedSlideCallback(info) {
 function getSavedSlide() {
     window.addEventListener('evObtemDadosGenericos', getSavedSlideCallback, false)
     try{
-        api.obterDadosGenericos('slide')
+        api.obterDadosGenericos(getSlideId())
     } catch {
         throw Error('Erro ao buscar slide salvo do AVAMEC')
     }
+}
+
+function getSlideId() {
+    return 'slide'.concat('_').concat(state.unit)
 }
 
 
