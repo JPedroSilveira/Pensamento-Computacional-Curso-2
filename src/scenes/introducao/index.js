@@ -28,11 +28,11 @@ class Introducao extends BaseScene {
       case '1':
         return (<SlideOne setHeader={this.showHeader}/>)
       case '2':
-        return (<SlideTwo setHeader={this.hideHeader}/>)
+        return (<SlideTwo setHeader={this.showHeader}/>)
       case '3': 
-        return (<SlideThree setHeader={this.hideHeader}/>)
+        return (<SlideThree setHeader={this.showHeader}/>)
       case '4': 
-        return (<SlideFour setHeader={this.hideHeader}/>)
+        return (<SlideFour setHeader={this.showHeader}/>)
       default:
         return this.errorSlideNotFound()
     }
