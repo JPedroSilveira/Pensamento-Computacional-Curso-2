@@ -1,5 +1,4 @@
 import UrlKey from '../constants/url-key'
-import AVAMECService from './avamec'
 
 class UrlService {
     get = key => {

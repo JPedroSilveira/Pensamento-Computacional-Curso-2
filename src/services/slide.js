@@ -35,7 +35,7 @@ class Slide {
         dados de slides atualizados
     */
     saveSlideProgress = (unit, slide, savedData) => {
-        let slideData = savedData.filter(data => data.slide == slide)
+        let slideData = savedData.filter(data => data.slide === slide)
 
         if (slideData.length === 1) {
             slideData[0].viewed = true

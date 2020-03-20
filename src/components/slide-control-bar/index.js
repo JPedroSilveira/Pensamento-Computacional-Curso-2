@@ -71,7 +71,7 @@ class SlideControlBar extends React.Component {
             <div className='slide-control-bar'>
                 <div className='side-bar'></div>
                 <div className='central-bar'>
-                    {(this.props.slide != 1 ||!(this.props.slide == 1 && !this.props.hasPreviousUnit)) &&  <GenericButton onClick={this.previous} className='slide-control-bar-button'>
+                    {(this.props.slide !== 1 ||!(this.props.slide === 1 && !this.props.hasPreviousUnit)) &&  <GenericButton onClick={this.previous} className='slide-control-bar-button'>
                         <Image className='button-image' src={BackFilled} alt='Voltar'/>
                         <div className='white-bar'></div>
         </GenericButton> }
@@ -82,7 +82,7 @@ class SlideControlBar extends React.Component {
                     <div className='unit next'>
                         {this.renderNextSlideName()}
                     </div>
-                    {(this.props.slide != 1 ||!(this.props.slide == 1 && !this.props.hasNextUnit)) && <GenericButton onClick={this.next} className='slide-control-bar-button'>
+                    {(this.props.slide !== 1 ||!(this.props.slide === 1 && !this.props.hasNextUnit)) && <GenericButton onClick={this.next} className='slide-control-bar-button'>
                         <div className='white-bar'></div>
                         <Image className='button-image' src={ForwardFilled} alt='Avançar'/>
                     </GenericButton> }

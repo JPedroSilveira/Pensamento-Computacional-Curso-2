@@ -46,7 +46,7 @@ class SlideControlNumber extends React.Component {
     }
 
     conditionToRender(slideNumber){
-        if (slideNumber != 1)
+        if (slideNumber !== 1)
             return (            <div className='slide-control-number'>
 
             ir para o slide:
