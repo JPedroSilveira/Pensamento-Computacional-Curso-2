@@ -347,6 +347,11 @@ class IntegralActivity extends BaseActivity {
                 .some(selectedOption => selectedOption.state === QuestionState.ANSWERED_WRONG
                         || selectedOption.state === QuestionState.NOT_ANSWERED)
             if (hasWrongOrEmptyOption) {
+                console.log("---------------------")
+                console.log("renderRetryButton")
+                console.log("---------------------")
+                console.log(this.state.unitState)
+                console.log("---------------------")
                 if(this.state.unitState === UnitState.COMPLETED){
                     return (
                         <BasicButton centralize={true} disabled={true}>
@@ -361,7 +366,7 @@ class IntegralActivity extends BaseActivity {
                             onMouseOver={e => e.currentTarget.firstChild.src = PressedLoadImage}
                             onMouseOut={e => e.currentTarget.firstChild.src = LoadImage}>
                             <img src={LoadImage} alt="Clique para tentar responder novamente ao questionário." />
-                            TENTAR NOVAMENTE
+                            TENTAR NOVAMENTAA
                         </BasicButton>
                     )
                 }

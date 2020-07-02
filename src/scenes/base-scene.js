@@ -66,10 +66,21 @@ class BaseScene extends Error {
     getAndSaveUnitProgressCallback = response => {
         let slideProgress = []
         SlideService.closeGetSlideProgress(this.getAndSaveUnitProgressCallback)
-        if(response.detail.status === 200){
-            slideProgress = JSON.parse(response.detail.data[0].valor)
+
+        let unitData = []
+
+        if(response.detail.status === 200) {
+            const data = response.detail.data
+            const unitKey = SlideService.getSlideProgressId(this.state.id)
+            unitData = data.filter(unit => unit.chave === unitKey)
+            console.log(response)
+            console.log(unitData)
+        }
+
+        if (unitData.length === 1){
+            slideProgress = JSON.parse(unitData[0].valor)
             this.saveUnitAndSlideProgress(this.state.slide, slideProgress)
-        } else if(response.detail.status === 412) {
+        } else {
             for(let count = 1; count <= this.state.slideCount; count++) {
                 slideProgress.push({
                     slide: count,
@@ -84,6 +95,8 @@ class BaseScene extends Error {
         console.log("-----------------------------------------")
         console.log("OnGetUnitProgress")
         console.log("-----------------------------------------")
+        console.log("Response")
+        console.log(response)
         console.log("SlideProgress")
         console.log(slideProgress)
         console.log("Slide: " + this.state.slide)
