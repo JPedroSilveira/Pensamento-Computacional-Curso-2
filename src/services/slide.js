@@ -35,7 +35,7 @@ class Slide {
         dados de slides atualizados
     */
     saveSlideProgress = (unit, slide, savedData) => {
-        let indexCurrentSlide = savedData.findIndex(data => data.slide === slide)
+        let indexCurrentSlide = savedData.findIndex(data => String(data.slide) === slide)
 
         if (indexCurrentSlide >= 0) {
             savedData[indexCurrentSlide].viewed = true
