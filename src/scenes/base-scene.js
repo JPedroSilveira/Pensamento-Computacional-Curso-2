@@ -67,8 +67,13 @@ class BaseScene extends Error {
         let slideProgress = []
         SlideService.closeGetSlideProgress(this.getAndSaveUnitProgressCallback)
         if(response.detail.status === 200){
+            console.log("------------------------------")
+            console.log("getAndSaveUnitProgressCallback")
+            console.log("------------------------------")
             slideProgress = JSON.parse(response.detail.data[0].valor)
-            this.saveUnitAndSlideProgress(this.state.slide, slideProgress)
+            console.log(response.detail.data)
+            console.log(response.detail.data[0].valor)
+            console.log("------------------------------")
         } else if(response.detail.status === 412) {
             for(let count = 1; count <= this.state.slideCount; count++) {
                 slideProgress.push({
