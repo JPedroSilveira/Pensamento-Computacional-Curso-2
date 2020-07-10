@@ -21,11 +21,8 @@ function getSavedUnitCallback(info) {
     console.log("----------------------")
     console.log("State Unit:")
     console.log(state.unit)
-    console.log("Valor API")
-    console.log(info.detail.data[0].valor)
-    
 
-    if(info.detail.status !== 200) {
+    if(info.detail.status === 200) {
         const data = info.detail.data
         const unitData = data.filter(unit => unit.chave === 'unit')
         console.log("unit data")
