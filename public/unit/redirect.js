@@ -60,11 +60,11 @@ function getSavedSlideCallback(info) {
 
     if (slideData && slideData.length === 1) {
         state.slide = slideData[0].valor
-        startApp()
     } else {
         api.registrarDadosGenericos(getSlideId(), state.slide)
-        startApp()
     }
+
+    startApp()
 }
 
 function getSavedSlide() {
